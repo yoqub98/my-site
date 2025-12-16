@@ -186,16 +186,16 @@
     box-shadow:
       0 8px 24px rgba(4, 72, 200, 0.15),
       0 4px 12px rgba(0, 0, 0, 0.1),
-      0 0 20px rgba(56, 189, 248, 0.3),
-      0 0 40px rgba(56, 189, 248, 0.2);
+      0 0 20px rgba(4, 72, 200, 0.3),
+      0 0 40px rgba(4, 72, 200, 0.2);
   }
   50% {
     box-shadow:
       0 8px 24px rgba(4, 72, 200, 0.25),
       0 4px 12px rgba(0, 0, 0, 0.1),
-      0 0 40px rgba(56, 189, 248, 0.6),
-      0 0 60px rgba(56, 189, 248, 0.4),
-      0 0 80px rgba(56, 189, 248, 0.2);
+      0 0 40px rgba(4, 72, 200, 0.6),
+      0 0 60px rgba(4, 72, 200, 0.4),
+      0 0 80px rgba(4, 72, 200, 0.2);
   }
 }
 
@@ -240,7 +240,7 @@
 .name {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   font-weight: 800;
-  font-size: var(--font-display);
+  font-size: clamp(49.3px, 6.12vw, 91.8px);
   color: var(--color-text-primary);
   line-height: 1.05;
   letter-spacing: -0.025em;
@@ -249,6 +249,18 @@
 .name p {
   margin: 0;
   white-space: nowrap;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+  color: var(--color-primary);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .title {
@@ -329,7 +341,7 @@
 .download-button:hover {
   background: #000000;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 0 20px rgba(4, 72, 200, 0.4), 0 0 40px rgba(4, 72, 200, 0.2), 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .download-button:active {
@@ -520,6 +532,19 @@
   line-height: 1.08;
 }
 
+.section-title-tools {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 700;
+  font-size: var(--font-h3);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.section-title-tools p {
+  margin: 0;
+  line-height: 1.2;
+}
+
 .education-description {
   width: 100%;
   max-width: var(--container-md);
@@ -559,7 +584,11 @@
 
 .banner-background {
   position: absolute;
-  inset: 0;
+  top: -150px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100% + 300px);
   overflow: hidden;
 }
 
@@ -567,7 +596,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   display: block;
 }
 
@@ -654,8 +683,7 @@
   align-items: stretch;
   gap: var(--space-4);
   background: var(--color-bg-primary);
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  flex-wrap: wrap;
 }
 
 .detail-card {
@@ -802,11 +830,11 @@
 /* Card Header */
 .card-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: var(--space-5);
   margin-bottom: var(--space-6);
-  text-align: center;
+  text-align: left;
 }
 
 .company-logo {
@@ -1021,7 +1049,226 @@
 }
 
 /* ============================================
-   11. TOOLS SECTION & MARQUEE
+   11. DESIGN PROCESS SECTION
+   ============================================ */
+.design-process-section {
+  width: 100%;
+  max-width: var(--container-xl);
+  padding: var(--space-32) var(--space-6);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.process-principles {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.principle-card {
+  background: linear-gradient(135deg,
+    rgba(245, 247, 250, 1) 0%,
+    rgba(248, 250, 252, 1) 100%
+  );
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  border: 1px solid rgba(4, 72, 200, 0.1);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.principle-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(4, 72, 200, 0.3);
+}
+
+.principle-icon {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.1) 0%,
+    rgba(37, 99, 235, 0.08) 100%
+  );
+  border-radius: 50%;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.principle-card:hover .principle-icon {
+  transform: rotate(360deg) scale(1.1);
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.2) 0%,
+    rgba(37, 99, 235, 0.15) 100%
+  );
+}
+
+.principle-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.principle-title {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: var(--font-h4);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.principle-description {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.workflow-diagram {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-8);
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.03) 0%,
+    rgba(37, 99, 235, 0.02) 100%
+  );
+  border-radius: var(--radius-2xl);
+  overflow-x: auto;
+}
+
+.workflow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 0 0 auto;
+  min-width: 120px;
+}
+
+.workflow-step-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-primary);
+  border-radius: 50%;
+  color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.workflow-step-icon::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.2) 0%,
+    rgba(37, 99, 235, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.workflow-step:hover .workflow-step-icon {
+  transform: scale(1.15);
+  box-shadow: var(--shadow-lg);
+}
+
+.workflow-step:hover .workflow-step-icon::before {
+  opacity: 1;
+}
+
+.workflow-step-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.workflow-step-label {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-body);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin: 0;
+}
+
+.workflow-arrow {
+  width: 40px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.workflow-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Animation for workflow steps */
+@keyframes workflowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.workflow-step-icon.animate-pulse {
+  animation: workflowPulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .process-principles {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-diagram {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .workflow-arrow {
+    transform: rotate(90deg);
+    width: 24px;
+    height: 40px;
+  }
+
+  .workflow-step {
+    min-width: 100%;
+  }
+}
+
+/* ============================================
+   12. TOOLS SECTION & MARQUEE
    ============================================ */
 .tools-section {
   width: 100%;
@@ -1439,36 +1686,12 @@
    13. GRADIENT STYLES - MODERN & TRENDY
    ============================================ */
 
-/* Gradient Text for Headers with Animated Gradient */
+/* Gradient Text for Headers */
 .gradient-text {
-  background: linear-gradient(var(--gradient-angle), #000 0%, #2D4B72 50%, #4A90E2 100%);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, #000000 0%, #263952 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientShift 8s ease infinite;
-  --gradient-angle: 15deg;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-    filter: hue-rotate(0deg);
-  }
-  25% {
-    background-position: 50% 100%;
-  }
-  50% {
-    background-position: 100% 50%;
-    filter: hue-rotate(10deg);
-  }
-  75% {
-    background-position: 50% 0%;
-  }
-  100% {
-    background-position: 0% 50%;
-    filter: hue-rotate(0deg);
-  }
 }
 
 /* Gradient Cards */
@@ -1603,7 +1826,7 @@
     #1d1d1f 100%
   );
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .download-button::before {
@@ -1617,6 +1840,7 @@
   );
   opacity: 0;
   transition: opacity var(--ease-base);
+  border-radius: var(--radius-full);
 }
 
 .download-button:hover::before {
@@ -1715,4 +1939,118 @@ html {
 /* Enhance transitions for all animated elements */
 * {
   transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ============================================
+   14. CUSTOM CURSOR
+   ============================================ */
+.portfolio-container,
+.portfolio-container * {
+  cursor: url('/Figma Cursor.svg') 12 12, auto;
+}
+
+/* For clickable elements */
+.download-button,
+.detail-card,
+.experience-card,
+.gallery-item,
+a,
+button {
+  cursor: url('/Figma Cursor.svg') 12 12, pointer;
+}
+
+/* ============================================
+   15. FLOATING ACTION BUTTON (FAB)
+   ============================================ */
+.fab-container {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.fab-container.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.fab-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #0088cc 0%, #0077b5 100%);
+  border: none;
+  border-radius: var(--radius-full);
+  color: white;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-body);
+  text-decoration: none;
+  box-shadow:
+    0 8px 24px rgba(0, 136, 204, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+}
+
+.fab-button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 12px 32px rgba(0, 136, 204, 0.45),
+    0 6px 16px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #009ee0 0%, #0088cc 100%);
+}
+
+.fab-button:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.fab-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fab-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+@media (max-width: 768px) {
+  .fab-container {
+    bottom: 24px;
+    right: 24px;
+  }
+
+  .fab-button {
+    padding: 14px 20px;
+    font-size: var(--font-body-sm);
+  }
+
+  .fab-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fab-container {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .fab-button {
+    padding: 12px 18px;
+    gap: 8px;
+  }
 }

@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "name": "Yoqub Khamidov",
+    "title": "UI/UX Designer",
+    "bio": {
+      "part1": "An experienced UI/UX designer with a strong foundation in graphic design and computer science, I specialize in ",
+      "highlight1": "transforming complex",
+      "part2": ", unstructured ideas ",
+      "highlight2": "into seamless, intuitive digital experiences",
+      "part3": "."
+    },
+    "bioSecond": "I thrive on solving challenging problems through aesthetic design, crafting interfaces that are not only visually striking but also logical, functional, and deeply user-focused.",
+    "downloadCV": {
+      "text": "Download my",
+      "cv": " CV"
+    },
+    "scrollText": "or keep scrolling to learn more about me"
+  },
+  "education": {
+    "subtitle": "About me",
+    "title": "Education",
+    "description": {
+      "text": "Sejong University is a prestigious",
+      "highlight1": " private university in Seoul, South Korea",
+      "text2": ", renowned for its strong programs in engineering, design, and management. I spent 4.5 years there ",
+      "highlight2": "earning a double degree",
+      "text3": ", gaining deep knowledge in computer science, technology, engineering, and business management."
+    },
+    "location": "Seoul, South Korea",
+    "period": "2018 - 2023",
+    "degree": "Bachelor's",
+    "major1": {
+      "title": "Business Administration",
+      "subtitle": "Main Major"
+    },
+    "major2": {
+      "title": "Computer Engineering",
+      "subtitle": "Double Major"
+    }
+  },
+  "workExperience": {
+    "subtitle": "About me",
+    "title": "Work Experience",
+    "uzinfocom": {
+      "name": "Unified Integrator UZINFOCOM",
+      "location": "IT Park, Tashkent, Uzbekistan",
+      "period": "Feb 2025",
+      "position": "Lead Web Design Specialist",
+      "description": "Uzbekistan's largest state-owned IT company, responsible for the country's digital infrastructure and services for millions of citizens. The company develops and implements e-government platforms and digital services used daily by millions of citizens and organizations.",
+      "intro": "Appointed as lead UI/UX designer to develop interfaces and user scenarios for large-scale government platforms, management systems, dashboards, and ministry web pages.",
+      "responsibilities": [
+        "Designed interfaces for 20+ websites and 10+ complex platforms covering government and commercial projects.",
+        "Participated in digitizing industry processes, transforming key business operations into convenient digital solutions.",
+        "Developed national-scale interfaces and dashboards used daily by millions of citizens and hundreds of organizations.",
+        "Was involved in designing business processes and system analytics, ensuring optimization and increased operational efficiency."
+      ]
+    },
+    "stek": {
+      "name": "STEK AUTOMOTIVE",
+      "location": "Seoul, South Korea",
+      "period": "Feb 2022 - Jan 2025",
+      "position": "UI/UX & Product Design",
+      "description": "The world's largest international company specializing in automotive window tinting and PPF films. Operating 1000+ installation centers across 80+ countries with a global network of distributors.",
+      "intro": "Hired as UI/UX designer with additional support in project management to advance the company's digital solutions.",
+      "responsibilities": [
+        "Complete redesign of the corporate website, resulting in increased user engagement and lead generation.",
+        "Design and launch of a global digital platform connecting installers, distributors, and STEK headquarters — automating company communications and daily operations with clients worldwide.",
+        "Regular presentations and defense of design solutions to stakeholders, focusing on alignment with business objectives and user needs.",
+        "Active participation in digitizing business processes, transforming offline operations into efficient and scalable online services."
+      ]
+    }
+  },
+  "skills": {
+    "subtitle": "Skills",
+    "title": "Tools & Technologies"
+  }
+}

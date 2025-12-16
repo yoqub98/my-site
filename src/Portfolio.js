@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Portfolio.css';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
@@ -9,16 +9,58 @@ import {
   CalendarIcon,
   BookOpenIcon,
   BriefcaseIcon,
-  CheckCircleIcon
+  CheckCircleIcon,
+  LightBulbIcon,
+  UserGroupIcon,
+  SparklesIcon,
+  RocketLaunchIcon,
+  MagnifyingGlassIcon,
+  PencilSquareIcon,
+  BeakerIcon,
+  ArrowPathIcon,
+  ChatBubbleLeftRightIcon,
+  ArrowRightIcon
 } from '@heroicons/react/24/solid';
+import { useTranslation } from './context/LanguageContext';
 
 function Portfolio() {
+  const { t } = useTranslation();
   const { scrollYProgress } = useScroll();
+  const [showFAB, setShowFAB] = useState(false);
+  const [displayedName, setDisplayedName] = useState('');
+  const fullName = t('hero.name');
 
   // Parallax transforms
   const heroY = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.3]);
-  const bannerY = useTransform(scrollYProgress, [0.3, 0.5], [100, -100]);
+  const bannerY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+
+  // Typewriter effect for name
+  useEffect(() => {
+    if (!fullName) return;
+
+    let currentIndex = 0;
+    const intervalId = setInterval(() => {
+      if (currentIndex <= fullName.length) {
+        setDisplayedName(fullName.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 100);
+
+    return () => clearInterval(intervalId);
+  }, [fullName]);
+
+  // FAB visibility on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowFAB(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Animation variants for sections
   const fadeInUp = {
@@ -100,21 +142,21 @@ function Portfolio() {
           <div className="hero-text">
             <div className="name-title">
               <motion.div className="name" variants={fadeInUp}>
-                <p>Yoqub Khamidov</p>
+                <p>{displayedName}<span className="typewriter-cursor">|</span></p>
               </motion.div>
               <motion.div className="title" variants={fadeInUp}>
-                <p>UI UX Designer</p>
+                <p>{t('hero.title')}</p>
               </motion.div>
             </div>
             <motion.div className="bio" variants={fadeInUp}>
               <p>
-                <span>An experienced UI/UX designer with a strong foundation in graphic design and computer science, I specialize in </span>
-                <span className="highlight">transforming complex</span>
-                <span>, unstructured ideas </span>
-                <span className="highlight">into seamless, intuitive digital experiences</span>
-                <span>. </span>
+                <span>{t('hero.bio.part1')}</span>
+                <span className="highlight">{t('hero.bio.highlight1')}</span>
+                <span>{t('hero.bio.part2')}</span>
+                <span className="highlight">{t('hero.bio.highlight2')}</span>
+                <span>{t('hero.bio.part3')}</span>
               </p>
-              <p>I thrive on solving challenging problems through aesthetic design, crafting interfaces that are not only visually striking but also logical, functional, and deeply user-focused.</p>
+              <p>{t('hero.bioSecond')}</p>
             </motion.div>
           </div>
 
@@ -130,8 +172,8 @@ function Portfolio() {
               >
                 <div className="button-text">
                   <p>
-                    <span className="uppercase">Download my</span>
-                    <span> CV</span>
+                    <span className="uppercase">{t('hero.downloadCV.text')}</span>
+                    <span>{t('hero.downloadCV.cv')}</span>
                   </p>
                 </div>
                 <motion.div
@@ -149,7 +191,7 @@ function Portfolio() {
             </div>
             <div className="scroll-section">
               <div className="scroll-text">
-                <p>or keep scrolling to learn more about me</p>
+                <p>{t('hero.scrollText')}</p>
               </div>
               <div className="chevron-icon">
                 <ChevronDownIcon />
@@ -164,12 +206,12 @@ function Portfolio() {
         className="education-section"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         variants={staggerContainer}
       >
         <motion.div className="section-header" variants={fadeInUp}>
           <div className="section-subtitle">
-            <p>About me</p>
+            <p>{t('education.subtitle')}</p>
           </div>
           <div className="section-title-wrapper">
             <motion.div
@@ -180,15 +222,15 @@ function Portfolio() {
               <AcademicCapIcon />
             </motion.div>
             <div className="section-title gradient-text">
-              <p>Education</p>
+              <p>{t('education.title')}</p>
             </div>
           </div>
         </motion.div>
         <motion.div className="education-description" variants={fadeInUp}>
           <p>
-            Sejong University is a prestigious<span className="highlight"> private university in Seoul, South Korea</span>
-            <span>, renowned for its strong programs in engineering, design, and management. I spent 4.5 years there </span>
-            <span className="highlight">earning a double degree</span>, gaining deep knowledge in computer science, technology, engineering, and business management.
+            {t('education.description.text')}<span className="highlight">{t('education.description.highlight1')}</span>
+            <span>{t('education.description.text2')}</span>
+            <span className="highlight">{t('education.description.highlight2')}</span>{t('education.description.text3')}
           </p>
         </motion.div>
       </motion.div>
@@ -199,7 +241,7 @@ function Portfolio() {
           className="university-banner"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
           variants={fadeInScale}
         >
           <motion.div
@@ -213,14 +255,14 @@ function Portfolio() {
             className="banner-content"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <motion.div
               className="university-logo"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <img alt="Sejong University" src="/a4073d97a9c85c4819f14c7cca6c890ee79c0c25.png" />
@@ -229,12 +271,12 @@ function Portfolio() {
               className="banner-location"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.5, delay: 0.7 }}
               whileHover={{ scale: 1.05 }}
             >
               <MapPinIcon className="location-icon" />
-              <span>Seoul, South Korea</span>
+              <span>{t('education.location')}</span>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -244,7 +286,7 @@ function Portfolio() {
           className="education-details"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           variants={staggerContainer}
         >
           <motion.div
@@ -264,8 +306,8 @@ function Portfolio() {
               <MapPinIcon />
             </motion.div>
             <div className="detail-text">
-              <p className="detail-title">Seoul</p>
-              <p className="detail-subtitle">South Korea</p>
+              <p className="detail-title">{t('education.location').split(', ')[0]}</p>
+              <p className="detail-subtitle">{t('education.location').split(', ')[1]}</p>
             </div>
           </motion.div>
 
@@ -286,8 +328,8 @@ function Portfolio() {
               <CalendarIcon />
             </motion.div>
             <div className="detail-text">
-              <p className="detail-title">2018 - 2023</p>
-              <p className="detail-subtitle">Bachelor's</p>
+              <p className="detail-title">{t('education.period')}</p>
+              <p className="detail-subtitle">{t('education.degree')}</p>
             </div>
           </motion.div>
 
@@ -305,11 +347,11 @@ function Portfolio() {
               whileHover={{ scale: 1.15 }}
               transition={{ duration: 0.3 }}
             >
-              <BookOpenIcon />
+              <AcademicCapIcon />
             </motion.div>
             <div className="detail-text">
-              <p className="detail-title">Business Administration</p>
-              <p className="detail-subtitle">Main Major</p>
+              <p className="detail-title">{t('education.major1.title')}</p>
+              <p className="detail-subtitle">{t('education.major1.subtitle')}</p>
             </div>
           </motion.div>
 
@@ -327,11 +369,11 @@ function Portfolio() {
               whileHover={{ scale: 1.15 }}
               transition={{ duration: 0.3 }}
             >
-              <BookOpenIcon />
+              <AcademicCapIcon />
             </motion.div>
             <div className="detail-text">
-              <p className="detail-title">Computer Engineering</p>
-              <p className="detail-subtitle">Double Major</p>
+              <p className="detail-title">{t('education.major2.title')}</p>
+              <p className="detail-subtitle">{t('education.major2.subtitle')}</p>
             </div>
           </motion.div>
         </motion.div>
@@ -342,12 +384,12 @@ function Portfolio() {
         className="work-experience-section"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
         variants={staggerContainer}
       >
         <motion.div className="section-header" variants={fadeInUp}>
           <div className="section-subtitle">
-            <p>About me</p>
+            <p>{t('workExperience.subtitle')}</p>
           </div>
           <div className="section-title-wrapper">
             <motion.div
@@ -358,7 +400,7 @@ function Portfolio() {
               <BriefcaseIcon />
             </motion.div>
             <div className="section-title-plain gradient-text">
-              <p>Work Experience</p>
+              <p>{t('workExperience.title')}</p>
             </div>
           </div>
         </motion.div>
@@ -374,15 +416,17 @@ function Portfolio() {
             whileHover={{ scale: 1.05 }}
           />
           <motion.div
-            className="gallery-item placeholder"
+            className="gallery-item main-photo"
             variants={cardVariant}
             whileHover={{ scale: 1.05 }}
-          />
+          >
+            <img alt="Work Experience" src="/img2.jpg" />
+          </motion.div>
           <motion.div
             className="gallery-item main-photo"
             variants={cardVariant}
             whileHover={{
-              scale: 1.05,
+              scale: 1.15,
               zIndex: 10,
               transition: { duration: 0.3 }
             }}
@@ -424,42 +468,32 @@ function Portfolio() {
                 <img alt="UZINFOCOM" src="https://uzinfocom.uz/_next/static/media/uzinfocom-logo.8612a388.svg" />
               </motion.div>
               <div className="company-info">
-                <h3>Единный Интегратор UZINFOCOM</h3>
+                <h3>{t('workExperience.uzinfocom.name')}</h3>
                 <div className="company-location">
                   <MapPinIcon className="location-icon-small" />
-                  <span>IT Park, г.Ташкент Узбекистан</span>
+                  <span>{t('workExperience.uzinfocom.location')}</span>
                 </div>
               </div>
             </div>
             <div className="card-period">
               <div className="period-date-wrapper">
                 <CalendarIcon className="calendar-icon-small" />
-                <p className="period-date">Фев 2025</p>
+                <p className="period-date">{t('workExperience.uzinfocom.period')}</p>
               </div>
-              <p className="position-title">Ведущий специалист отдела Веб Дизайна</p>
+              <p className="position-title">{t('workExperience.uzinfocom.position')}</p>
             </div>
             <div className="card-description">
-              <p>Крупнейшая государственная IT-компания Узбекистана, отвечающая за цифровую инфраструктуру страны и сервисы для миллионов граждан. Компания разрабатывает и внедряет платформы электронного правительства и цифровые сервисы, которыми ежедневно пользуются миллионы граждан и организаций.</p>
+              <p>{t('workExperience.uzinfocom.description')}</p>
             </div>
             <div className="card-responsibilities">
-              <p className="responsibilities-intro">Назначен ведущим UI/UX-дизайнером для разработки интерфейсов и пользовательских сценариев в рамках масштабных государственных платформ, систем управления, дешбордов и веб страниц министерств</p>
+              <p className="responsibilities-intro">{t('workExperience.uzinfocom.intro')}</p>
               <ul className="responsibilities-list">
-                <li>
-                  <CheckCircleIcon className="checkmark-icon" />
-                  <span>Спроектировал интерфейсы для 20+ веб-сайтов и 10+ комплексных платформ, охватывающих государственные и коммерческие проекты.</span>
-                </li>
-                <li>
-                  <CheckCircleIcon className="checkmark-icon" />
-                  <span>Участвовал в цифровизации отраслевых процессов, переводя ключевые бизнес-операции в удобные цифровые решения.</span>
-                </li>
-                <li>
-                  <CheckCircleIcon className="checkmark-icon" />
-                  <span>Разработал интерфейсы и дашборды национального масштаба, которыми ежедневно пользуются миллионы граждан и сотни организаций.</span>
-                </li>
-                <li>
-                  <CheckCircleIcon className="checkmark-icon" />
-                  <span>Был вовлечен в проектирование бизнес-процессов и аналитики систем, обеспечив оптимизацию и повышение эффективности работы.</span>
-                </li>
+                {t('workExperience.uzinfocom.responsibilities').map((responsibility, index) => (
+                  <li key={index}>
+                    <CheckCircleIcon className="checkmark-icon" />
+                    <span>{responsibility}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </motion.div>
@@ -524,12 +558,134 @@ function Portfolio() {
         </motion.div>
       </motion.div>
 
+      {/* DESIGN PROCESS SECTION */}
+      <motion.div
+        className="design-process-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={staggerContainer}
+      >
+        <motion.div className="section-header" variants={fadeInUp}>
+          <div className="section-subtitle">
+            <p>Design Philosophy</p>
+          </div>
+          <div className="section-title-wrapper">
+            <motion.div
+              className="education-icon"
+              variants={iconFloat}
+              whileHover="hover"
+            >
+              <LightBulbIcon />
+            </motion.div>
+            <div className="section-title gradient-text">
+              <p>Мой подход к дизайну</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Design Principles */}
+        <motion.div
+          className="process-principles"
+          variants={staggerContainer}
+        >
+          <motion.div className="principle-card" variants={cardVariant}>
+            <div className="principle-icon">
+              <UserGroupIcon />
+            </div>
+            <h3 className="principle-title">Ориентация на пользователя</h3>
+            <p className="principle-description">
+              Всегда начинаю с понимания потребностей пользователей, создавая решения, которые действительно решают их проблемы.
+            </p>
+          </motion.div>
+
+          <motion.div className="principle-card" variants={cardVariant}>
+            <div className="principle-icon">
+              <SparklesIcon />
+            </div>
+            <h3 className="principle-title">Простота и ясность</h3>
+            <p className="principle-description">
+              Стремлюсь к минимализму - убираю всё лишнее, оставляя только то, что действительно важно для пользователя.
+            </p>
+          </motion.div>
+
+          <motion.div className="principle-card" variants={cardVariant}>
+            <div className="principle-icon">
+              <RocketLaunchIcon />
+            </div>
+            <h3 className="principle-title">Инновации и эксперименты</h3>
+            <p className="principle-description">
+              Постоянно исследую новые подходы и технологии, чтобы создавать современные и эффективные решения.
+            </p>
+          </motion.div>
+
+          <motion.div className="principle-card" variants={cardVariant}>
+            <div className="principle-icon">
+              <ChatBubbleLeftRightIcon />
+            </div>
+            <h3 className="principle-title">Коллаборация</h3>
+            <p className="principle-description">
+              Тесно работаю с командой и стейкхолдерами, ценя каждое мнение и превращая обратную связь в улучшения.
+            </p>
+          </motion.div>
+        </motion.div>
+
+        {/* Workflow Diagram */}
+        <motion.div
+          className="workflow-diagram"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          variants={staggerContainer}
+        >
+          <motion.div className="workflow-step" variants={cardVariant}>
+            <div className="workflow-step-icon">
+              <MagnifyingGlassIcon />
+            </div>
+            <p className="workflow-step-label">Research</p>
+          </motion.div>
+
+          <motion.div className="workflow-arrow" variants={fadeInUp}>
+            <ArrowRightIcon />
+          </motion.div>
+
+          <motion.div className="workflow-step" variants={cardVariant}>
+            <div className="workflow-step-icon">
+              <PencilSquareIcon />
+            </div>
+            <p className="workflow-step-label">Design</p>
+          </motion.div>
+
+          <motion.div className="workflow-arrow" variants={fadeInUp}>
+            <ArrowRightIcon />
+          </motion.div>
+
+          <motion.div className="workflow-step" variants={cardVariant}>
+            <div className="workflow-step-icon">
+              <BeakerIcon />
+            </div>
+            <p className="workflow-step-label">Test</p>
+          </motion.div>
+
+          <motion.div className="workflow-arrow" variants={fadeInUp}>
+            <ArrowRightIcon />
+          </motion.div>
+
+          <motion.div className="workflow-step" variants={cardVariant}>
+            <div className="workflow-step-icon">
+              <ArrowPathIcon />
+            </div>
+            <p className="workflow-step-label">Iterate</p>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
       {/* TOOLS MARQUEE SECTION */}
       <motion.div
         className="tools-section"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         variants={staggerContainer}
       >
         <motion.div className="section-header" variants={fadeInUp}>
@@ -537,7 +693,7 @@ function Portfolio() {
             <p>Skills</p>
           </div>
           <div className="section-title-wrapper">
-            <div className="section-title gradient-text">
+            <div className="section-title-tools gradient-text">
               <p>Инструменты и технологии</p>
             </div>
           </div>
@@ -594,6 +750,23 @@ function Portfolio() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* FLOATING ACTION BUTTON (FAB) */}
+      <div className={`fab-container ${showFAB ? 'visible' : ''}`}>
+        <a
+          href="https://t.me/yoqub_610"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fab-button"
+        >
+          <div className="fab-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.242-1.865-.442-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.121.099.155.232.171.326.016.094.037.308.02.475z"/>
+            </svg>
+          </div>
+          <span>Связаться со мной</span>
+        </a>
       </div>
     </div>
   );

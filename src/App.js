@@ -1,11 +1,16 @@
 import './App.css';
 import Portfolio from './Portfolio';
+import { LanguageProvider } from './context/LanguageContext';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 function App() {
   return (
-    <div className="App">
-      <Portfolio />
-    </div>
+    <LanguageProvider>
+      <div className="App">
+        <LanguageSwitcher />
+        <Portfolio />
+      </div>
+    </LanguageProvider>
   );
 }
 
