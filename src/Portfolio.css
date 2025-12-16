@@ -1,0 +1,1718 @@
+/* ==================================
+   PROFESSIONAL PORTFOLIO - APPLE INSPIRED
+   Clean, Minimal, Center-Aligned
+   ================================== */
+
+/* ============================================
+   1. DESIGN SYSTEM - ROOT VARIABLES
+   ============================================ */
+:root {
+  /* COLORS - Minimalist Palette */
+  --color-primary: #0448c8;
+  --color-primary-hover: #0337a0;
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: #6e6e73;
+  --color-text-tertiary: #86868b;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f5f5f7;
+  --color-bg-elevated: #fafafa;
+  --color-border: #d2d2d7;
+  --color-border-light: #e5e5e7;
+
+  /* TYPOGRAPHY SCALE - Systematic Hierarchy - MODERN BOLD STYLE */
+  --font-display: clamp(58px, 7.2vw, 108px);    /* Hero/Display text - 10% smaller */
+  --font-h1: clamp(48px, 6vw, 80px);            /* Main headings - BIGGER */
+  --font-h2: clamp(36px, 5vw, 56px);            /* Section headings - BIGGER */
+  --font-h3: clamp(28px, 3.5vw, 36px);          /* Subsection headings */
+  --font-h4: clamp(22px, 2.8vw, 28px);          /* Card headings */
+  --font-body-xl: clamp(19px, 2.2vw, 21px);     /* Large body text */
+  --font-body-lg: clamp(17px, 2vw, 19px);       /* Body text large */
+  --font-body: clamp(15px, 1.8vw, 17px);        /* Body text */
+  --font-body-sm: clamp(13px, 1.5vw, 15px);     /* Small text */
+  --font-caption: clamp(12px, 1.3vw, 14px);     /* Captions */
+
+  /* SPACING SCALE - 8px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* CONTAINER WIDTHS */
+  --container-xs: 480px;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 980px;
+  --container-xl: 1200px;
+  --container-2xl: 1400px;
+
+  /* TRANSITIONS */
+  --ease-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* SHADOWS */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
+
+  /* BORDERS */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+}
+
+/* ============================================
+   2. RESET & BASE STYLES
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.portfolio-container {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================================
+   3. TYPOGRAPHY SYSTEM
+   ============================================ */
+.text-display {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 800;
+  font-size: var(--font-display);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.text-h1 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 800;
+  font-size: var(--font-h1);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 800;
+  font-size: var(--font-h2);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.text-h3 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 700;
+  font-size: var(--font-h3);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-h4 {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-h4);
+  line-height: 1.3;
+}
+
+.text-body-xl {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: var(--font-body-xl);
+  line-height: 1.5;
+}
+
+.text-body-lg {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: var(--font-body-lg);
+  line-height: 1.5;
+}
+
+.text-body {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: var(--font-body);
+  line-height: 1.6;
+}
+
+/* ============================================
+   4. HERO SECTION
+   ============================================ */
+.hero-section {
+  width: 100%;
+  max-width: var(--container-md);
+  padding: var(--space-24) var(--space-6) var(--space-32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  text-align: center;
+}
+
+/* Profile Photo */
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--ease-slow);
+  position: relative;
+  animation: profileGlow 3s ease-in-out infinite;
+}
+
+@keyframes profileGlow {
+  0%, 100% {
+    box-shadow:
+      0 8px 24px rgba(4, 72, 200, 0.15),
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      0 0 20px rgba(56, 189, 248, 0.3),
+      0 0 40px rgba(56, 189, 248, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 8px 24px rgba(4, 72, 200, 0.25),
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      0 0 40px rgba(56, 189, 248, 0.6),
+      0 0 60px rgba(56, 189, 248, 0.4),
+      0 0 80px rgba(56, 189, 248, 0.2);
+  }
+}
+
+.profile-photo:hover {
+  transform: scale(1.05);
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hero Content */
+.hero-content {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.hero-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+/* Name & Title */
+.name-title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.name {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 800;
+  font-size: var(--font-display);
+  color: var(--color-text-primary);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.name p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 700;
+  font-size: var(--font-h2);
+  color: var(--color-primary);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.title p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Bio */
+.bio {
+  width: 100%;
+  max-width: var(--container-md);
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: var(--font-body-xl);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-top: var(--space-4);
+}
+
+.bio p {
+  margin: 0 0 var(--space-4) 0;
+}
+
+.bio p:last-child {
+  margin-bottom: 0;
+}
+
+.bio .highlight {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   5. CTA SECTION
+   ============================================ */
+.cta-section {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-10);
+  margin-top: var(--space-6);
+}
+
+/* Download Button */
+.download-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.download-button {
+  background: var(--color-text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 32px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--ease-base);
+  border: none;
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+}
+
+.download-button:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.download-button:active {
+  transform: translateY(0);
+}
+
+.button-text {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-body);
+  color: #ffffff;
+  white-space: nowrap;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.button-text p {
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.button-text .uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.download-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+.download-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Scroll Section */
+.scroll-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.scroll-text {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: var(--font-body);
+  color: var(--color-text-tertiary);
+  line-height: 1;
+}
+
+.scroll-text p {
+  margin: 0;
+  line-height: 1;
+}
+
+.chevron-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 2s ease-in-out infinite;
+  opacity: 0.6;
+  color: var(--color-text-tertiary);
+}
+
+.chevron-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(12px);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   6. EDUCATION SECTION
+   ============================================ */
+.education-section {
+  width: 100%;
+  max-width: var(--container-lg);
+  padding: var(--space-32) var(--space-6) var(--space-16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  text-align: center;
+}
+
+/* Section Header */
+.section-header {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.section-subtitle {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-body-sm);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.section-subtitle p {
+  margin: 0;
+  line-height: 1;
+}
+
+.section-title-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.education-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.education-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.section-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 800;
+  font-size: var(--font-h1);
+  background: linear-gradient(135deg, #000000 0%, #263952 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.section-title p {
+  margin: 0;
+  line-height: 1.08;
+}
+
+.section-title-plain {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 800;
+  font-size: var(--font-h1);
+  color: var(--color-text-primary);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.section-title-plain p {
+  margin: 0;
+  line-height: 1.08;
+}
+
+.education-description {
+  width: 100%;
+  max-width: var(--container-md);
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: var(--font-body-xl);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.education-description p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.education-description .highlight {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   7. UNIVERSITY BANNER
+   ============================================ */
+.university-banner-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: var(--space-8) 0 var(--space-20) 0;
+}
+
+.university-banner {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.banner-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.banner-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 72, 200, 0.25) 0%,
+    rgba(1, 23, 63, 0.45) 50%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+.banner-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-12) var(--space-6);
+  z-index: 1;
+}
+
+.university-logo {
+  max-width: 420px;
+  width: 90%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.university-logo img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.banner-location {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-6);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.location-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: block;
+  color: #ffffff;
+}
+
+.banner-location span {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-body);
+  color: #ffffff;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ============================================
+   8. EDUCATION DETAILS CARDS
+   ============================================ */
+.education-details {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--space-4);
+  background: var(--color-bg-primary);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.detail-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-8);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  flex: 0 0 auto;
+  min-width: 240px;
+}
+
+.detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border);
+  background: var(--color-bg-elevated);
+}
+
+.detail-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.detail-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.detail-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.detail-title {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: var(--font-body-lg);
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.detail-subtitle {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ============================================
+   9. WORK EXPERIENCE SECTION
+   ============================================ */
+.work-experience-section {
+  width: 100%;
+  max-width: var(--container-xl);
+  padding: var(--space-32) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+  margin: 0 auto;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-12) 0;
+}
+
+.gallery-item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  transition: all 0.2s ease;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-md);
+}
+
+.gallery-item.placeholder {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+.gallery-item.main-photo {
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-item.main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================================
+   10. EXPERIENCE CARDS
+   ============================================ */
+.experience-cards {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.experience-card {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  border: 1px solid var(--color-border-light);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.experience-card:hover {
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.company-logo {
+  background: linear-gradient(135deg,
+    rgba(245, 247, 250, 1) 0%,
+    rgba(248, 250, 252, 1) 100%
+  );
+  border-radius: var(--radius-md);
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  border: 1px solid transparent;
+  box-shadow:
+    0 2px 8px rgba(4, 72, 200, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.company-logo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.15) 0%,
+    rgba(37, 99, 235, 0.1) 50%,
+    rgba(100, 116, 139, 0.08) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.company-logo:hover {
+  box-shadow:
+    0 4px 16px rgba(4, 72, 200, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+.company-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* UZINFOCOM Logo - Wide horizontal logo (914x184px) */
+.uzinfocom-logo {
+  width: 180px;
+  height: 75px;
+  padding: var(--space-3) var(--space-4);
+}
+
+/* STEK Logo */
+.stek-logo {
+  width: 120px;
+  height: 75px;
+  padding: var(--space-3);
+}
+
+.company-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.company-info h3 {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: var(--font-h3);
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.company-location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.location-icon-small {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.6;
+  color: var(--color-text-tertiary);
+}
+
+.company-location span {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: var(--font-body);
+  color: var(--color-text-tertiary);
+  line-height: 1.5;
+}
+
+/* Card Period */
+.card-period {
+  margin-bottom: var(--space-5);
+}
+
+.period-date-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.calendar-icon-small {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-text-tertiary);
+  opacity: 0.7;
+}
+
+.period-date {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: var(--font-body-sm);
+  color: var(--color-text-tertiary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.position-title {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: var(--font-h4);
+  color: var(--color-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Card Description */
+.card-description {
+  margin-bottom: var(--space-6);
+}
+
+.card-description p {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Card Responsibilities */
+.card-responsibilities {
+  border: 2px dashed rgba(4, 72, 200, 0.15);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  background: var(--color-bg-secondary);
+}
+
+.responsibilities-intro {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-body);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-5) 0;
+}
+
+.responsibilities-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.responsibilities-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.responsibilities-list li:last-child {
+  margin-bottom: 0;
+}
+
+.checkmark-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #10b981;
+  margin-top: 2px;
+}
+
+.responsibilities-list li span {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* ============================================
+   11. TOOLS SECTION & MARQUEE
+   ============================================ */
+.tools-section {
+  width: 100%;
+  max-width: var(--container-lg);
+  padding: var(--space-32) var(--space-6) var(--space-8);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tools-marquee-section {
+  width: 100%;
+  background: linear-gradient(135deg,
+    rgba(245, 247, 250, 1) 0%,
+    rgba(248, 250, 252, 1) 50%,
+    rgba(245, 247, 250, 1) 100%
+  );
+  padding: var(--space-24) 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.tools-marquee-section::before,
+.tools-marquee-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tools-marquee-section::before {
+  left: 0;
+  background: linear-gradient(to right,
+    rgba(245, 247, 250, 1) 0%,
+    rgba(245, 247, 250, 0) 100%
+  );
+}
+
+.tools-marquee-section::after {
+  right: 0;
+  background: linear-gradient(to left,
+    rgba(245, 247, 250, 1) 0%,
+    rgba(245, 247, 250, 0) 100%
+  );
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-20);
+  animation: marqueeScroll 30s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow:
+    0 4px 12px rgba(4, 72, 200, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(4, 72, 200, 0.1);
+}
+
+.marquee-item:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 8px 24px rgba(4, 72, 200, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  border-color: rgba(4, 72, 200, 0.2);
+}
+
+.marquee-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: grayscale(0.2);
+  transition: filter 0.3s ease;
+}
+
+.marquee-item:hover img {
+  filter: grayscale(0);
+}
+
+/* ============================================
+   12. RESPONSIVE DESIGN
+   ============================================ */
+
+/* Large Tablets & Small Desktops (1024px) */
+@media (max-width: 1024px) {
+  :root {
+    --space-24: 80px;
+    --space-32: 96px;
+  }
+
+  .hero-section {
+    padding: var(--space-20) var(--space-6) var(--space-24);
+  }
+
+  .education-section,
+  .work-experience-section {
+    padding: var(--space-24) var(--space-6);
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-item.placeholder:nth-child(1),
+  .gallery-item.placeholder:nth-child(5) {
+    display: none;
+  }
+
+  .education-details {
+    gap: var(--space-3);
+  }
+
+  .detail-card {
+    min-width: 200px;
+  }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+  :root {
+    --space-12: 40px;
+    --space-16: 56px;
+    --space-20: 64px;
+    --space-24: 64px;
+    --space-32: 80px;
+  }
+
+  .hero-section {
+    padding: var(--space-16) var(--space-5) var(--space-20);
+    gap: var(--space-10);
+  }
+
+  .profile-photo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .name p {
+    white-space: normal;
+  }
+
+  .title p {
+    white-space: normal;
+  }
+
+  .cta-section {
+    gap: var(--space-8);
+  }
+
+  .download-button {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 28px;
+  }
+
+  .education-section,
+  .work-experience-section {
+    padding: var(--space-20) var(--space-5);
+  }
+
+  .university-banner {
+    height: 400px;
+  }
+
+  .marquee-item {
+    width: 64px;
+    height: 64px;
+    padding: var(--space-3);
+  }
+
+  .marquee-item img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .marquee-track {
+    gap: var(--space-16);
+  }
+
+  .university-logo {
+    max-width: 320px;
+  }
+
+  .education-details {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: var(--space-8) var(--space-5);
+  }
+
+  .detail-card {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .experience-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-gallery {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .gallery-item.placeholder {
+    display: none;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .company-logo {
+    width: 80px;
+    height: 80px;
+    padding: var(--space-3);
+  }
+
+  .uzinfocom-logo {
+    width: 180px;
+    height: 70px;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .stek-logo {
+    width: 120px;
+    height: 70px;
+    padding: var(--space-2);
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  :root {
+    --space-6: 20px;
+    --space-8: 28px;
+    --space-10: 32px;
+    --space-12: 36px;
+    --space-16: 48px;
+    --space-20: 56px;
+  }
+
+  .hero-section {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .education-section,
+  .work-experience-section {
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .download-button {
+    padding: 13px 24px;
+    gap: 8px;
+  }
+
+  .experience-card {
+    padding: var(--space-6);
+  }
+
+  .university-banner {
+    height: 320px;
+  }
+
+  .tools-marquee-section {
+    padding: var(--space-16) 0;
+  }
+
+  .marquee-item {
+    width: 56px;
+    height: 56px;
+    padding: var(--space-2);
+  }
+
+  .marquee-item img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .marquee-track {
+    gap: var(--space-12);
+  }
+
+  .university-logo {
+    max-width: 240px;
+  }
+
+  .banner-location {
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .card-header {
+    gap: var(--space-4);
+  }
+
+  .company-logo {
+    width: 72px;
+    height: 72px;
+  }
+
+  .uzinfocom-logo {
+    width: 160px;
+    height: 64px;
+    padding: var(--space-2);
+  }
+
+  .stek-logo {
+    width: 110px;
+    height: 64px;
+    padding: var(--space-2);
+  }
+
+  .card-responsibilities {
+    padding: var(--space-4);
+  }
+
+  .card-responsibilities ul {
+    padding-left: var(--space-5);
+  }
+}
+
+/* Extra Small Mobile (360px) */
+@media (max-width: 360px) {
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .download-button {
+    padding: 12px 20px;
+  }
+
+  .company-logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .uzinfocom-logo {
+    width: 140px;
+    height: 56px;
+  }
+
+  .stek-logo {
+    width: 100px;
+    height: 56px;
+  }
+}
+
+/* ============================================
+   12. UTILITY CLASSES
+   ============================================ */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Prevent text selection on interactive elements */
+.download-button,
+.gallery-item,
+.detail-card,
+.experience-card {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* ============================================
+   13. GRADIENT STYLES - MODERN & TRENDY
+   ============================================ */
+
+/* Gradient Text for Headers with Animated Gradient */
+.gradient-text {
+  background: linear-gradient(var(--gradient-angle), #000 0%, #2D4B72 50%, #4A90E2 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 8s ease infinite;
+  --gradient-angle: 15deg;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(10deg);
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* Gradient Cards */
+.gradient-card {
+  position: relative;
+  background: linear-gradient(135deg,
+    rgba(245, 247, 250, 1) 0%,
+    rgba(241, 245, 249, 1) 50%,
+    rgba(248, 250, 252, 1) 100%
+  );
+  border: 1px solid transparent;
+  overflow: hidden;
+}
+
+.gradient-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.15) 0%,
+    rgba(37, 99, 235, 0.1) 25%,
+    rgba(100, 116, 139, 0.08) 50%,
+    rgba(148, 163, 184, 0.06) 75%,
+    rgba(203, 213, 225, 0.05) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.gradient-card:hover::before {
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.3) 0%,
+    rgba(37, 99, 235, 0.25) 25%,
+    rgba(30, 64, 175, 0.2) 50%,
+    rgba(38, 57, 82, 0.15) 75%,
+    rgba(30, 41, 59, 0.1) 100%
+  );
+}
+
+/* Gradient Icons */
+.gradient-icon {
+  position: relative;
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.1) 0%,
+    rgba(37, 99, 235, 0.08) 50%,
+    rgba(100, 116, 139, 0.06) 100%
+  );
+  border-radius: 12px;
+  padding: 8px;
+  color: #0448c8;
+  transition: all var(--ease-base);
+}
+
+.gradient-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1.5px;
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.2) 0%,
+    rgba(37, 99, 235, 0.15) 50%,
+    rgba(100, 116, 139, 0.1) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--ease-base);
+}
+
+.gradient-card:hover .gradient-icon {
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.15) 0%,
+    rgba(37, 99, 235, 0.12) 50%,
+    rgba(100, 116, 139, 0.1) 100%
+  );
+  box-shadow: 0 4px 12px rgba(4, 72, 200, 0.15);
+}
+
+.gradient-card:hover .gradient-icon::before {
+  opacity: 1;
+}
+
+.gradient-icon svg {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 2px 4px rgba(4, 72, 200, 0.1));
+}
+
+/* Enhanced Education Icon with Gradient */
+.education-icon {
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.12) 0%,
+    rgba(37, 99, 235, 0.1) 50%,
+    rgba(100, 116, 139, 0.08) 100%
+  );
+  border-radius: 14px;
+  box-shadow:
+    0 4px 12px rgba(4, 72, 200, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all var(--ease-base);
+}
+
+.education-icon:hover {
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.2) 0%,
+    rgba(37, 99, 235, 0.15) 50%,
+    rgba(100, 116, 139, 0.12) 100%
+  );
+  box-shadow:
+    0 8px 24px rgba(4, 72, 200, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Profile Photo - defined above with glow animation */
+
+/* Download Button Gradient Enhancement */
+.download-button {
+  background: linear-gradient(135deg,
+    #1d1d1f 0%,
+    #2a2a2c 50%,
+    #1d1d1f 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.download-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.3) 0%,
+    rgba(37, 99, 235, 0.2) 50%,
+    rgba(59, 130, 246, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--ease-base);
+}
+
+.download-button:hover::before {
+  opacity: 1;
+}
+
+/* Experience Card Gradient Hover */
+.experience-card {
+  position: relative;
+  transition: all var(--ease-base);
+}
+
+.experience-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.03) 0%,
+    rgba(37, 99, 235, 0.02) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity var(--ease-base);
+  pointer-events: none;
+}
+
+.experience-card:hover::after {
+  opacity: 1;
+}
+
+/* University Banner Gradient Overlay Enhancement */
+.banner-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(4, 72, 200, 0.3) 0%,
+    rgba(30, 64, 175, 0.5) 30%,
+    rgba(38, 57, 82, 0.65) 60%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+/* Section Subtitle Gradient Effect */
+.section-subtitle {
+  position: relative;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.08) 0%,
+    rgba(37, 99, 235, 0.06) 50%,
+    rgba(100, 116, 139, 0.04) 100%
+  );
+}
+
+/* Responsibilities Section Gradient Border */
+.card-responsibilities {
+  border: 2px dashed transparent;
+  background: linear-gradient(var(--color-bg-secondary), var(--color-bg-secondary)) padding-box,
+    linear-gradient(135deg,
+      rgba(4, 72, 200, 0.2) 0%,
+      rgba(37, 99, 235, 0.15) 25%,
+      rgba(100, 116, 139, 0.1) 50%,
+      rgba(148, 163, 184, 0.08) 75%,
+      rgba(203, 213, 225, 0.05) 100%
+    ) border-box;
+}
+
+/* Animated Gradient Background for Gallery Placeholders */
+.gallery-item.placeholder {
+  background: linear-gradient(135deg,
+    rgba(4, 72, 200, 0.03) 0%,
+    rgba(37, 99, 235, 0.025) 25%,
+    rgba(100, 116, 139, 0.02) 50%,
+    rgba(148, 163, 184, 0.015) 75%,
+    rgba(203, 213, 225, 0.01) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhance transitions for all animated elements */
+* {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
