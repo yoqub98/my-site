@@ -70,8 +70,77 @@
       ]
     }
   },
+  "designProcess": {
+    "subtitle": "Design Philosophy",
+    "title": "My Approach to Design",
+    "principles": {
+      "userCentric": {
+        "title": "User-Centric",
+        "description": "I always start with understanding user needs, creating solutions that truly solve their problems."
+      },
+      "simplicity": {
+        "title": "Simplicity & Clarity",
+        "description": "I strive for minimalism - removing everything unnecessary, leaving only what truly matters to the user."
+      },
+      "innovation": {
+        "title": "Innovation & Experimentation",
+        "description": "I constantly explore new approaches and technologies to create modern and effective solutions."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "I work closely with the team and stakeholders, valuing every opinion and turning feedback into improvements."
+      }
+    },
+    "workflow": {
+      "research": {
+        "label": "Research",
+        "description": "Deep dive into user needs, competitor analysis, and identifying key problems"
+      },
+      "design": {
+        "label": "Design",
+        "description": "Creating prototypes, visual design, and interactive solutions"
+      },
+      "test": {
+        "label": "Test",
+        "description": "Testing with real users and gathering feedback"
+      },
+      "iterate": {
+        "label": "Iterate",
+        "description": "Refining based on data and continuous product improvement"
+      }
+    }
+  },
   "skills": {
     "subtitle": "Skills",
     "title": "Tools & Technologies"
+  },
+  "contact": {
+    "mainButton": "Contact me",
+    "options": {
+      "telegram": {
+        "prefix": "Via",
+        "service": "Telegram"
+      },
+      "email": {
+        "prefix": "Via",
+        "service": "Email"
+      },
+      "linkedin": {
+        "prefix": "Via",
+        "service": "LinkedIn"
+      },
+      "phone": {
+        "service": "Call"
+      },
+      "behance": {
+        "prefix": "Via",
+        "service": "Behance"
+      }
+    },
+    "emailModal": {
+      "title": "My Email",
+      "copied": "Copied!",
+      "copy": "Copy"
+    }
   }
 }

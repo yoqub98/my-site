@@ -4,7 +4,12 @@
       "Bash(claude mcp add:*)",
       "Bash(claude mcp list:*)",
       "Bash(claude mcp:*)",
-      "WebFetch(domain:127.0.0.1)"
+      "WebFetch(domain:127.0.0.1)",
+      "Bash(npm start)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd new portfolio features and enhancements\n\n- Add custom Figma cursor throughout the site\n- Implement typewriter effect for name with blinking cursor\n- Add Design Process section with 4 key principles and workflow diagram\n- Add Floating Action Button (FAB) for Telegram contact\n- Add new work experience photo (img2.jpg)\n- Update photo gallery with new image\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
