@@ -683,7 +683,8 @@
   align-items: stretch;
   gap: var(--space-4);
   background: var(--color-bg-primary);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .detail-card {
@@ -695,8 +696,9 @@
   border-radius: var(--radius-lg);
   transition: all 0.2s ease;
   border: 1px solid transparent;
-  flex: 0 0 auto;
-  min-width: 240px;
+  flex: 1 1 0;
+  min-width: 220px;
+  white-space: nowrap;
 }
 
 .detail-card:hover {
@@ -776,13 +778,19 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 3 / 4;
-  transition: all 0.2s ease;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.15s ease,
+              z-index 0s;
   background: rgba(0, 0, 0, 0.04);
+  position: relative;
 }
 
 .gallery-item:hover {
-  transform: scale(1.03);
-  box-shadow: var(--shadow-md);
+  transform: scale(1.12) !important;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.1) !important;
+  z-index: 10 !important;
 }
 
 .gallery-item.placeholder {
@@ -999,7 +1007,7 @@
 
 /* Card Responsibilities */
 .card-responsibilities {
-  border: 2px dashed rgba(4, 72, 200, 0.15);
+  border: none;
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   background: var(--color-bg-secondary);
@@ -1071,9 +1079,9 @@
 }
 
 .principle-card {
-  background: linear-gradient(135deg,
+  background: linear-gradient(150deg,
     rgba(245, 247, 250, 1) 0%,
-    rgba(248, 250, 252, 1) 100%
+    rgb(238, 247, 255) 100%
   );
   border-radius: var(--radius-xl);
   padding: var(--space-8);
@@ -1082,7 +1090,7 @@
   align-items: center;
   text-align: center;
   gap: var(--space-4);
-  border: 1px solid rgba(4, 72, 200, 0.1);
+  
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: var(--shadow-sm);
 }
@@ -1144,12 +1152,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
-  padding: var(--space-8);
-  background: linear-gradient(135deg,
-    rgba(4, 72, 200, 0.03) 0%,
-    rgba(37, 99, 235, 0.02) 100%
-  );
+  gap: var(--space-6);
+  padding: var(--space-12);
+  background: transparent;
   border-radius: var(--radius-2xl);
   overflow-x: auto;
 }
@@ -1160,44 +1165,57 @@
   align-items: center;
   gap: var(--space-3);
   flex: 0 0 auto;
-  min-width: 120px;
+  min-width: 180px;
+  perspective: 1000px;
 }
 
-.workflow-step-icon {
-  width: 80px;
-  height: 80px;
+.workflow-card {
+  width: 180px;
+  height: 180px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.workflow-step:hover .workflow-card {
+  transform: rotateY(180deg);
+}
+
+.workflow-card-front,
+.workflow-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius-xl);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-primary);
-  border-radius: 50%;
-  color: var(--color-primary);
-  box-shadow: var(--shadow-md);
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  position: relative;
-}
-
-.workflow-step-icon::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: linear-gradient(135deg,
-    rgba(4, 72, 200, 0.2) 0%,
-    rgba(37, 99, 235, 0.1) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-
-.workflow-step:hover .workflow-step-icon {
-  transform: scale(1.15);
+  gap: var(--space-3);
+  padding: var(--space-6);
   box-shadow: var(--shadow-lg);
 }
 
-.workflow-step:hover .workflow-step-icon::before {
-  opacity: 1;
+.workflow-card-front {
+  background: var(--color-bg-primary);
+  border: 2px solid var(--color-border-light);
+}
+
+.workflow-card-back {
+  background: linear-gradient(135deg, #0448c8 0%, #0659e0 50%, #0448c8 100%);
+  transform: rotateY(180deg);
+}
+
+.workflow-step-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
 }
 
 .workflow-step-icon svg {
@@ -1207,10 +1225,20 @@
 
 .workflow-step-label {
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 600;
-  font-size: var(--font-body);
+  font-weight: 700;
+  font-size: var(--font-h4);
   color: var(--color-text-primary);
   text-align: center;
+  margin: 0;
+}
+
+.workflow-step-description {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: var(--font-body);
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -1896,17 +1924,9 @@
   );
 }
 
-/* Responsibilities Section Gradient Border */
+/* Responsibilities Section - Simple Background */
 .card-responsibilities {
-  border: 2px dashed transparent;
-  background: linear-gradient(var(--color-bg-secondary), var(--color-bg-secondary)) padding-box,
-    linear-gradient(135deg,
-      rgba(4, 72, 200, 0.2) 0%,
-      rgba(37, 99, 235, 0.15) 25%,
-      rgba(100, 116, 139, 0.1) 50%,
-      rgba(148, 163, 184, 0.08) 75%,
-      rgba(203, 213, 225, 0.05) 100%
-    ) border-box;
+  background: var(--color-bg-secondary);
 }
 
 /* Animated Gradient Background for Gallery Placeholders */
@@ -1944,25 +1964,36 @@ html {
 /* ============================================
    14. CUSTOM CURSOR
    ============================================ */
-.portfolio-container,
-.portfolio-container * {
-  cursor: url('/Figma Cursor.svg') 12 12, auto;
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-3px, -3px);
+  transition: none;
 }
 
-/* For clickable elements */
-.download-button,
-.detail-card,
-.experience-card,
-.gallery-item,
-a,
-button {
-  cursor: url('/Figma Cursor.svg') 12 12, pointer;
+.custom-cursor svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Hide default cursor */
+.portfolio-container,
+.portfolio-container *,
+body,
+html {
+  cursor: none !important;
 }
 
 /* ============================================
-   15. FLOATING ACTION BUTTON (FAB)
+   15. EXPANDABLE CONTACT MENU
    ============================================ */
-.fab-container {
+.contact-menu-container {
   position: fixed;
   bottom: 32px;
   right: 32px;
@@ -1971,20 +2002,24 @@ button {
   transform: translateY(100px) scale(0.8);
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-3);
 }
 
-.fab-container.visible {
+.contact-menu-container.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: all;
 }
 
-.fab-button {
+.contact-main-button {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 24px;
-  background: linear-gradient(135deg, #0088cc 0%, #0077b5 100%);
+  padding: 16px 28px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0337a0 100%);
   border: none;
   border-radius: var(--radius-full);
   color: white;
@@ -1993,64 +2028,258 @@ button {
   font-size: var(--font-body);
   text-decoration: none;
   box-shadow:
-    0 8px 24px rgba(0, 136, 204, 0.35),
+    0 8px 24px rgba(4, 72, 200, 0.35),
     0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   white-space: nowrap;
+  cursor: none;
 }
 
-.fab-button:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow:
-    0 12px 32px rgba(0, 136, 204, 0.45),
-    0 6px 16px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #009ee0 0%, #0088cc 100%);
-}
-
-.fab-button:active {
-  transform: translateY(-2px) scale(1.02);
-}
-
-.fab-icon {
+.contact-icon {
   width: 24px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: white;
 }
 
-.fab-icon svg {
+.contact-icon svg {
   width: 100%;
   height: 100%;
-  fill: currentColor;
+}
+
+.contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-end;
+}
+
+.contact-option-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  background: var(--color-bg-primary);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-body);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-lg);
+  white-space: nowrap;
+  cursor: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.contact-option-item:hover {
+  border-color: var(--option-color, var(--color-primary));
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.15),
+    0 0 0 3px rgba(4, 72, 200, 0.1);
+}
+
+.contact-option-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-option-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-option-label {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.contact-prefix {
+  font-weight: 400;
+  color: var(--color-text-tertiary);
+}
+
+.contact-service {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* EMAIL MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+.email-modal {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  max-width: 500px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border-light);
+}
+
+.email-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+}
+
+.email-modal-header h3 {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: var(--font-h3);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.modal-close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-secondary);
+  border: none;
+  border-radius: 50%;
+  color: var(--color-text-secondary);
+  cursor: none;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: var(--color-border);
+  color: var(--color-text-primary);
+  transform: rotate(90deg);
+}
+
+.email-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.email-display {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border-light);
+}
+
+.email-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.email-text {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-body-lg);
+  color: var(--color-text-primary);
+  word-break: break-all;
+}
+
+.copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 16px 28px;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  color: white;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: var(--font-body);
+  cursor: none;
+  box-shadow: var(--shadow-md);
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background: var(--color-primary-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.copy-button svg {
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-  .fab-container {
+  .contact-menu-container {
     bottom: 24px;
     right: 24px;
   }
 
-  .fab-button {
-    padding: 14px 20px;
+  .contact-main-button {
+    padding: 14px 22px;
     font-size: var(--font-body-sm);
   }
 
-  .fab-icon {
-    width: 20px;
-    height: 20px;
+  .contact-option-item {
+    padding: 12px 20px;
+    font-size: var(--font-body-sm);
+  }
+
+  .contact-option-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .email-modal {
+    padding: var(--space-8);
   }
 }
 
 @media (max-width: 480px) {
-  .fab-container {
+  .contact-menu-container {
     bottom: 20px;
     right: 20px;
   }
 
-  .fab-button {
+  .contact-main-button {
     padding: 12px 18px;
     gap: 8px;
+  }
+
+  .contact-option-item {
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .email-modal {
+    padding: var(--space-6);
+  }
+
+  .email-text {
+    font-size: var(--font-body);
   }
 }
