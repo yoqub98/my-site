@@ -1,0 +1,109 @@
+STEKSHIELD Case Study - Content for Claude Code
+Project Slug
+stekshield-crm
+Image Folder
+src/images/projects/stekshield-crm/
+
+SECTION 1: HERO
+title
+STEKSHIELD
+subtitle
+CRM Platform for STEK Partners
+description
+An innovative CRM/ERP platform designed for the automotive protection industry, connecting headquarters with distributors and installation centers across 80+ countries.
+period
+2024 - 2025
+industry
+Automotive
+role
+UI/UX Design
+Image
+img-cover → Hero image showing tablet and phone mockups with the platform interface
+
+SECTION 2: PROJECT OVERVIEW
+text
+STEK Automotive is a leading provider of vehicle protection solutions, specializing in paint protection films, window tinting, and anti-gravel films. With over 45 years of experience in the protective film market, the company has established itself as an industry innovator, offering cutting-edge products that combine advanced technology with exceptional quality.
+The goal was to develop an ERP/CRM platform that unifies business operations between STEK headquarters and their network of distributors and installation studios across 80+ countries. The platform needed to streamline key processes such as warranty registration, claims management, and customer communication — transforming fragmented interactions via phone calls, emails, and messengers into a single centralized digital solution.
+Images (side by side)
+img-overview-1 → Dashboard or main interface view (tablet mockup)
+img-overview-2 → Another key screen showing the platform (tablet/phone mockup)
+
+SECTION 3: PROBLEM
+text
+Before the platform existed, STEK's partner network faced significant operational challenges. Distributors and installers were often overloaded with installation work and lacked time for lengthy warranty registration processes. Tracking claim statuses was complicated since the approval workflow involved multiple parties — installers, distributors, and STEK headquarters — with no unified system to monitor progress.
+Additionally, the absence of real-time data access made it difficult to make informed decisions about inventory management and sales performance. Communication between stakeholders was scattered across various channels, leading to delays, miscommunication, and inconsistent customer experiences.
+
+SECTION 4: GOALS & SUCCESS METRICS
+text
+The project aimed to achieve several key objectives: reduce the time required for warranty registration and claims processing by at least 50%, provide real-time visibility into claim statuses for all stakeholders, create an intuitive interface that installers could use efficiently between jobs, and establish a centralized database for warranties, claims, and customer information accessible to authorized users based on their roles.
+Success would be measured by user adoption rates among distributors and installers, reduction in average processing time for warranties and claims, decrease in support inquiries related to status tracking, and overall user satisfaction scores from the partner network.
+
+SECTION 5: USER FLOW & INFORMATION ARCHITECTURE
+text
+I developed comprehensive user flows for all key platform processes: warranty registration, claims submission, and communication between clients and distributors. Low-fidelity wireframes were used to quickly visualize and present user scenarios to stakeholders, allowing us to identify pain points and make adjustments before development began.
+This approach saved resources and enabled the team to validate ideas early. The information architecture was designed to accommodate multiple user roles — installers, distributors, regional managers, and headquarters staff — each with appropriate access levels and tailored interfaces.
+Images
+img-userflow-1 → User flow diagram showing the claims process workflow
+
+SECTION 6: DESIGN SOLUTIONS
+text
+The interface was built using a design system based on Tailwind CSS, with base components adapted and extended to meet project-specific requirements. Key design decisions focused on reducing friction and accelerating common tasks across the platform.
+For warranty registration, I implemented VIN-based auto-fill functionality that retrieves vehicle data automatically, reducing input time by 40%. Product selection was simplified by replacing manual serial number entry with automatic data retrieval. For claims submission, since most required data already exists in the registered warranty, I designed an auto-population mechanism using the warranty ID — replacing multiple form fields with a single input and reducing claim creation time by 60%.
+Images (horizontal scroll)
+img-solutions-1 → Warranty registration form with VIN decoder
+img-solutions-2 → Product details auto-fill interface
+img-solutions-3 → Claims submission simplified flow
+img-solutions-4 → Step-by-step form wizard interface
+
+SECTION 7: WIREFRAMES
+Images (side by side)
+img-wireframes-1 → Low-fidelity wireframe of warranty registration flow
+img-wireframes-2 → Low-fidelity wireframe of warranty list/view screen
+
+SECTION 8: HIGH FIDELITY UI DESIGNS
+Row 1 - Large Image
+img-hifi-1 → Claims management dashboard showing card-based UI with filters and status indicators (tablet + phone mockup)
+Row 2 - Four Thumbnails (grid)
+img-hifi-2 → Claim card component detail
+img-hifi-3 → Claims list view desktop
+img-hifi-4 → Claims list view mobile
+img-hifi-5 → Claim detail screen
+Row 3 - Text
+Claims and warranty data contain extensive information, but users need to see only what's most relevant at a glance. I implemented a card-based interface for displaying claims and warranties, enabling quick visualization of key data while keeping the interface clean and user-friendly. Color-coded status indicators make information instantly scannable, simplifying communication and accelerating decision-making across all user roles.
+Row 4 - Large Image
+img-hifi-6 → Warranty registrations dashboard with card grid (tablet + phone mockup)
+Row 5 - Four Thumbnails (horizontal scroll)
+img-hifi-7 → Warranty card with product tabs
+img-hifi-8 → Warranty card with image carousel
+img-hifi-9 → Product details entry screen
+img-hifi-10 → Warranty list filters and sorting
+Row 6 - Text
+Warranty records can include multiple products with different specifications, so I designed tabbed navigation within each card to organize information effectively and provide quick access to details for each installed product. Each warranty also contains multiple installation photos taken from various angles — a carousel component allows users to browse all images quickly without opening additional windows.
+Row 7 - Large Image
+img-hifi-11 → Analytics dashboard with charts, maps, and KPIs (MacBook + phone mockup)
+Row 8 - Text (NEW - add this row to template)
+When designing the analytics dashboard, I considered the scale and complexity of STEK's data — the company offers numerous products installed on various vehicles worldwide. I applied key UX principles: information hierarchy to divide data into logical blocks for quick navigation, and intuitive visualization using charts, graphs, and color indicators to simplify comprehension of large data volumes.
+Row 9 - Large Image (NEW - add this row to template)
+img-hifi-12 → Vehicle analytics widgets showing popular car brands and models with filtering options
+Row 10 - Text (NEW - add this row to template)
+For an automotive company, having data structured by vehicle makes and models is essential. Together with the team, we developed a vehicle-centric analytics approach, creating dedicated dashboards for visualizing this data. The interface was designed for maximum clarity, with easy access to sorting and filtering options.
+
+SECTION 9: RESULTS & IMPACT
+Outcomes (bullet points)
+
+Accelerated business processes: Automation of warranty registration and claims submission reduced overall task completion time by 60%, with average claim review time decreasing from 10 days to 3 days
+Improved user satisfaction: The platform streamlined interactions between distributors, installers, and customers, significantly enhancing the overall user experience
+Increased engagement: 100% of distributors onboarded to the platform within the first months after launch, and the number of registered installation centers grew by 80%
+Optimized data access: Integration of analytics dashboards enabled users to analyze sales, product popularity, and warranty statuses in real-time, significantly improving decision-making processes
+
+Closing Text
+The STEKSHIELD platform successfully transformed STEK's partner operations from fragmented manual processes into a unified digital ecosystem. By focusing on user needs and iterating based on continuous feedback, we delivered a solution that not only met business objectives but exceeded adoption expectations across the global partner network.
+
+NEW SECTION TO ADD: MY ROLE & APPROACH
+Note to Claude Code: Add this as a new section in the template, positioned after "Project Overview" and before "Problem". This section describes the designer's specific responsibilities and methodology.
+Heading
+My Role & Approach
+text
+As the lead UI/UX designer, I was responsible for designing user scenarios, conducting UX research, developing the interface and design system, and maintaining close collaboration with development teams and stakeholders from all involved parties.
+My work encompassed creating the product's visual concept, aligning design decisions with business objectives, and ensuring interface consistency across the entire platform. I was also responsible for collecting user feedback and implementing design improvements to optimize the product experience.
+The project followed an agile methodology, enabling rapid response to user feedback, quick iterations, and continuous delivery of improvements throughout the development cycle.

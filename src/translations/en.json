@@ -41,34 +41,34 @@
   "workExperience": {
     "subtitle": "About me",
     "title": "Work Experience",
-    "uzinfocom": {
-      "name": "Unified Integrator UZINFOCOM",
-      "location": "IT Park, Tashkent, Uzbekistan",
-      "period": "Feb 2025",
-      "position": "Lead Web Design Specialist",
-      "description": "Uzbekistan's largest state-owned IT company, responsible for the country's digital infrastructure and services for millions of citizens. The company develops and implements e-government platforms and digital services used daily by millions of citizens and organizations.",
-      "intro": "Appointed as lead UI/UX designer to develop interfaces and user scenarios for large-scale government platforms, management systems, dashboards, and ministry web pages.",
-      "responsibilities": [
-        "Designed interfaces for 20+ websites and 10+ complex platforms covering government and commercial projects.",
-        "Participated in digitizing industry processes, transforming key business operations into convenient digital solutions.",
-        "Developed national-scale interfaces and dashboards used daily by millions of citizens and hundreds of organizations.",
-        "Was involved in designing business processes and system analytics, ensuring optimization and increased operational efficiency."
-      ]
-    },
-    "stek": {
-      "name": "STEK AUTOMOTIVE",
-      "location": "Seoul, South Korea",
-      "period": "Feb 2022 - Jan 2025",
-      "position": "UI/UX & Product Design",
-      "description": "The world's largest international company specializing in automotive window tinting and PPF films. Operating 1000+ installation centers across 80+ countries with a global network of distributors.",
-      "intro": "Hired as UI/UX designer with additional support in project management to advance the company's digital solutions.",
-      "responsibilities": [
-        "Complete redesign of the corporate website, resulting in increased user engagement and lead generation.",
-        "Design and launch of a global digital platform connecting installers, distributors, and STEK headquarters — automating company communications and daily operations with clients worldwide.",
-        "Regular presentations and defense of design solutions to stakeholders, focusing on alignment with business objectives and user needs.",
-        "Active participation in digitizing business processes, transforming offline operations into efficient and scalable online services."
-      ]
-    }
+      "uzinfocom": {
+    "name": "Single Integrator UZINFOCOM",
+    "location": "IT Park, Tashkent, Uzbekistan",
+    "period": "Feb 2025",
+    "position": "Lead Web Design Specialist",
+    "description": "Uzbekistan’s largest state-owned IT company responsible for the country’s digital infrastructure and e-government services used daily by millions of citizens and public organizations.",
+    "intro": "Appointed as Lead UI/UX Designer to develop user interfaces and end-to-end user flows for large-scale government platforms, internal management systems, analytical dashboards, and official ministry websites.",
+    "responsibilities": [
+      "Led the design of 20+ websites and 10+ complex digital platforms across government and commercial initiatives.",
+      "Contributed to the digitization of national-level processes by translating complex regulations and workflows into clear, user-friendly digital solutions.",
+      "Designed high-traffic interfaces and dashboards used daily by millions of citizens and hundreds of organizations nationwide.",
+      "Participated in business process design and system analytics, improving usability, operational efficiency, and data-driven decision-making."
+    ]
+  },
+  "stek": {
+    "name": "STEK AUTOMOTIVE",
+    "location": "Seoul, South Korea",
+    "period": "Feb 2022 - Jan 2025",
+    "position": "UI/UX & Product Designer",
+    "description": "A global leader in automotive window tinting and PPF films, operating over 1,000 installation centers across 80+ countries with a worldwide distributor network.",
+    "intro": "Joined as a UI/UX Designer with additional involvement in product and project coordination to support the development and scaling of the company’s global digital ecosystem.",
+    "responsibilities": [
+      "Led the full redesign of the corporate website, resulting in improved user engagement and stronger lead generation.",
+      "Designed and launched a global digital platform connecting installers, distributors, and headquarters, streamlining communication and daily operations worldwide.",
+      "Regularly presented and defended design solutions to stakeholders, ensuring alignment between business objectives, technical constraints, and user needs.",
+      "Played a key role in digitizing offline business processes, transforming them into scalable, efficient, and user-centered online services."
+    ]
+  }
   },
   "designProcess": {
     "subtitle": "Design Philosophy",
@@ -141,6 +141,97 @@
       "title": "My Email",
       "copied": "Copied!",
       "copy": "Copy"
+    }
+  },
+  "projects": {
+    "backButton": "Back to Portfolio",
+    "notFound": {
+      "title": "Project not found",
+      "backButton": "Back to Home"
+    },
+    "sections": {
+      "overview": "Project Overview",
+      "myRole": "My Role & Approach",
+      "problem": "Problem",
+      "goals": "Goals & Success Metrics",
+      "userFlow": "User Flow & IA",
+      "designSolutions": "Design Solutions",
+      "wireframes": "Wireframes",
+      "hifiDesigns": "High Fidelity UI Designs",
+      "results": "Results & Impact",
+      "outcomes": "Outcomes"
+    },
+    "stekshield-crm": {
+      "title": "STEKSHIELD",
+      "subtitle": "CRM Platform for STEK Partners",
+      "description": "An innovative CRM/ERP platform designed for the automotive protection industry, connecting headquarters with distributors and installation centers across 80+ countries.",
+      "period": "2024 - 2025",
+      "industry": "Automotive",
+      "role": "UI/UX Design",
+      "overview": [
+        "STEK Automotive is a leading provider of vehicle protection solutions, specializing in paint protection films, window tinting, and anti-gravel films. With over 45 years of experience in the protective film market, the company has established itself as an industry innovator, offering cutting-edge products that combine advanced technology with exceptional quality.",
+        "The goal was to develop an ERP/CRM platform that unifies business operations between STEK headquarters and their network of distributors and installation studios across 80+ countries. The platform needed to streamline key processes such as warranty registration, claims management, and customer communication — transforming fragmented interactions via phone calls, emails, and messengers into a single centralized digital solution."
+      ],
+      "myRole": [
+        "As the lead UI/UX designer, I was responsible for designing user scenarios, conducting UX research, developing the interface and design system, and maintaining close collaboration with development teams and stakeholders from all involved parties.",
+        "My work encompassed creating the product's visual concept, aligning design decisions with business objectives, and ensuring interface consistency across the entire platform. I was also responsible for collecting user feedback and implementing design improvements to optimize the product experience.",
+        "The project followed an agile methodology, enabling rapid response to user feedback, quick iterations, and continuous delivery of improvements throughout the development cycle."
+      ],
+      "problem": [
+        "Before the platform existed, STEK's partner network faced significant operational challenges. Distributors and installers were often overloaded with installation work and lacked time for lengthy warranty registration processes. Tracking claim statuses was complicated since the approval workflow involved multiple parties — installers, distributors, and STEK headquarters — with no unified system to monitor progress.",
+        "Additionally, the absence of real-time data access made it difficult to make informed decisions about inventory management and sales performance. Communication between stakeholders was scattered across various channels, leading to delays, miscommunication, and inconsistent customer experiences."
+      ],
+      "goals": {
+        "paragraphs": [
+          "The project aimed to achieve several key objectives: reduce the time required for warranty registration and claims processing by at least 50%, provide real-time visibility into claim statuses for all stakeholders, create an intuitive interface that installers could use efficiently between jobs, and establish a centralized database for warranties, claims, and customer information accessible to authorized users based on their roles."
+        ],
+        "bullets": [
+          "User adoption rates among distributors and installers",
+          "Reduction in average processing time for warranties and claims",
+          "Decrease in support inquiries related to status tracking",
+          "Overall user satisfaction scores from the partner network"
+        ]
+      },
+      "userFlow": {
+        "text": [
+          "I developed comprehensive user flows for all key platform processes: warranty registration, claims submission, and communication between clients and distributors. Low-fidelity wireframes were used to quickly visualize and present user scenarios to stakeholders, allowing us to identify pain points and make adjustments before development began.",
+          "This approach saved resources and enabled the team to validate ideas early. The information architecture was designed to accommodate multiple user roles — installers, distributors, regional managers, and headquarters staff — each with appropriate access levels and tailored interfaces."
+        ]
+      },
+      "designSolutions": {
+        "text": [
+          "The interface was built using a design system based on Tailwind CSS, with base components adapted and extended to meet project-specific requirements. Key design decisions focused on reducing friction and accelerating common tasks across the platform.",
+          "For warranty registration, I implemented VIN-based auto-fill functionality that retrieves vehicle data automatically, reducing input time by 40%. Product selection was simplified by replacing manual serial number entry with automatic data retrieval. For claims submission, since most required data already exists in the registered warranty, I designed an auto-population mechanism using the warranty ID — replacing multiple form fields with a single input and reducing claim creation time by 60%."
+        ]
+      },
+      "hifiDesigns": {
+        "text1": [
+          "Claims and warranty data contain extensive information, but users need to see only what's most relevant at a glance. I implemented a card-based interface for displaying claims and warranties, enabling quick visualization of key data while keeping the interface clean and user-friendly. Color-coded status indicators make information instantly scannable, simplifying communication and accelerating decision-making across all user roles."
+        ],
+        "text2": [
+          "Warranty records can include multiple products with different specifications, so I designed tabbed navigation within each card to organize information effectively and provide quick access to details for each installed product. Each warranty also contains multiple installation photos taken from various angles — a carousel component allows users to browse all images quickly without opening additional windows."
+        ],
+        "text3": [
+          "When designing the analytics dashboard, I considered the scale and complexity of STEK's data — the company offers numerous products installed on various vehicles worldwide. I applied key UX principles: information hierarchy to divide data into logical blocks for quick navigation, and intuitive visualization using charts, graphs, and color indicators to simplify comprehension of large data volumes."
+        ],
+        "text4": [
+          "For an automotive company, having data structured by vehicle makes and models is essential. Together with the team, we developed a vehicle-centric analytics approach, creating dedicated dashboards for visualizing this data. The interface was designed for maximum clarity, with easy access to sorting and filtering options."
+        ],
+        "hasImage12": true
+      },
+      "results": {
+        "outcomes": [
+          { "number": "60", "suffix": "%", "description": "Reduction in overall task completion time" },
+          { "number": "70", "suffix": "%", "description": "Faster claim review process (10 days to 3 days)" },
+          { "number": "100", "suffix": "%", "description": "Distributor onboarding rate within first months" },
+          { "number": "80", "suffix": "%", "description": "Growth in registered installation centers" },
+          { "number": "3", "suffix": "x", "description": "Improved decision-making speed with real-time analytics" },
+          { "number": "95", "suffix": "%", "description": "User satisfaction rate with streamlined workflows" }
+        ],
+        "impact": [
+          "The STEKSHIELD platform successfully transformed STEK's partner operations from fragmented manual processes into a unified digital ecosystem. By focusing on user needs and iterating based on continuous feedback, we delivered a solution that not only met business objectives but exceeded adoption expectations across the global partner network."
+        ]
+      }
     }
   }
 }

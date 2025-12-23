@@ -644,42 +644,32 @@ function Portfolio() {
                 <img alt="STEK AUTOMOTIVE" src="https://static.wixstatic.com/media/5d1532_6017681975414cdea008a1ea12a9252e~mv2.png/v1/fill/w_720,h_355,al_c,lg_1,q_85,enc_avif,quality_auto/5d1532_6017681975414cdea008a1ea12a9252e~mv2.png" />
               </motion.div>
               <div className="company-info">
-                <h3>STEK AUTOMOTIVE</h3>
+                <h3>{t('workExperience.stek.name')}</h3>
                 <div className="company-location">
                   <MapPinIcon className="location-icon-small" />
-                  <span>Сеул, Ю.Корея</span>
+                  <span>{t('workExperience.stek.location')}</span>
                 </div>
               </div>
             </div>
             <div className="card-period">
               <div className="period-date-wrapper">
                 <CalendarIcon className="calendar-icon-small" />
-                <p className="period-date">Фев 2022 - Янв 2025</p>
+                <p className="period-date">{t('workExperience.stek.period')}</p>
               </div>
-              <p className="position-title">UI/UX & Product Design</p>
+              <p className="position-title">{t('workExperience.stek.position')}</p>
             </div>
             <div className="card-description">
-              <p>Крупнейшая международная компания в сфере тонировок и PPF плёнок для автомобилей. Более 1000+ установочных центров в 80+ странах мира с сетью дистрибютеров.</p>
+              <p>{t('workExperience.stek.description')}</p>
             </div>
             <div className="card-responsibilities">
-              <p className="responsibilities-intro">Принят на позицию UI/UX-дизайнера с дополнительной поддержкой в области проектного менеджмента для развития цифровых решений компании.</p>
+              <p className="responsibilities-intro">{t('workExperience.stek.intro')}</p>
               <ul className="responsibilities-list">
-                <li>
-                  <CheckCircleIcon className="checkmark-icon" />
-                  <span>Полный редизайн корпоративного сайта, что привело к росту вовлечённости пользователей и количеству заявок.</span>
-                </li>
-                <li>
-                  <CheckCircleIcon className="checkmark-icon" />
-                  <span>Проектирование и запуск глобальной цифровой платформы, объединяющей установщиков, дистрибьюторов и штаб-квартиру STEK — автоматизация коммуникаций и повседневных операций компании с клиентами по всему миру.</span>
-                </li>
-                <li>
-                  <CheckCircleIcon className="checkmark-icon" />
-                  <span>Регулярные презентации и защита дизайн-решений перед стейкхолдерами, с акцентом на соответствие бизнес-целям и потребностям пользователей.</span>
-                </li>
-                <li>
-                  <CheckCircleIcon className="checkmark-icon" />
-                  <span>Активное участие в цифровизации бизнес-процессов, перевод оффлайн-операций в эффективные и масштабируемые онлайн-сервисы.</span>
-                </li>
+                {t('workExperience.stek.responsibilities').map((responsibility, index) => (
+                  <li key={index}>
+                    <CheckCircleIcon className="checkmark-icon" />
+                    <span>{responsibility}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </motion.div>
