@@ -22,6 +22,7 @@ import {
   ArrowRightIcon
 } from '@heroicons/react/24/solid';
 import { useTranslation } from './context/LanguageContext';
+import Ripple from './components/Ripple';
 
 function Portfolio() {
   const { t } = useTranslation();
@@ -251,6 +252,9 @@ function Portfolio() {
         className="hero-section"
         style={{ y: heroY, opacity: heroOpacity }}
       >
+        {/* Ripple Background Effect */}
+        <Ripple mainCircleSize={210} mainCircleOpacity={0.24} numCircles={8} />
+
         <motion.div
           className="profile-photo"
           initial={{ opacity: 0, scale: 0.5, y: 20 }}

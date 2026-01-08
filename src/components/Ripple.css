@@ -1,0 +1,40 @@
+.ripple-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+
+  /* MANUAL POSITION ADJUSTMENT - Change these values to move the ripple */
+  /* Example: top: -50px moves ripple up, left: 20px moves ripple right */
+  top: -690px;    /* Adjust Y position: negative = up, positive = down */
+  left: 5px;   /* Adjust X position: negative = left, positive = right */
+}
+
+.ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(218, 218, 228, 0.093);  /* Increased opacity from 0.3 to 0.5 */
+  border: 1.5px solid rgba(160, 160, 180, 0.3);  /* Increased border opacity */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple-wave 3s ease-out infinite;  /* Smooth expanding animation */
+}
+
+/* Smooth expanding ripple animation */
+@keyframes ripple-wave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
